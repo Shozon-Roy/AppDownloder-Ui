@@ -11,7 +11,7 @@ A pixel-perfect, responsive web template that recreates the Google Play Store ap
 ---
 ## 🎨 Preview
 
-![Screenshot of Play Store Style App Download Page](#)
+![Screenshot of Play Store Style App Download Page](https://raw.githubusercontent.com/Shozon-Roy/AppDownloder-Ui/refs/heads/main/assets/20250825_135905.jpg)
 
 
 ---
