@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <title>Play Store Style App Download Page — Pixel-Perfect Responsive Template</title>
+  <meta name="description" content="A pixel-perfect, responsive Play Store style app download page template. Showcase your Android or iOS app with a professional, familiar UI. Includes screenshots, ratings, features, reviews, data safety, and more. Free, easy to customize, and no dependencies.">
+  <meta name="keywords" content="play store, app showcase, app detail page, app download page, responsive, pixel-perfect, HTML template, mobile app, bootstrap icons, light dark theme, screenshots, reviews, free, web template">
+  <meta name="author" content="Shozon Roy">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Play Store Style App Download Page — Pixel-Perfect Responsive Template">
+  <meta property="og:description" content="A pixel-perfect, responsive Play Store app detail template for showcasing your mobile app. Features screenshots, reviews, install button, ratings, and more. Professionally designed, easily customizable.">
+  <meta property="og:url" content="https://your-domain.com/"> <!-- Update to your live URL -->
+  <meta property="og:image" content="https://your-domain.com/preview.png"> <!-- Update to your preview image -->
+  <meta property="og:site_name" content="Play Store Style App Download">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Play Store Style App Download Page — Pixel-Perfect Responsive Template">
+  <meta name="twitter:description" content="Showcase your mobile app with a beautiful Play Store inspired download page. Responsive, pixel-perfect, with screenshots, features, reviews, and more.">
+  <meta name="twitter:image" content="https://your-domain.com/preview.png"> <!-- Update to your preview image -->
+  <meta name="twitter:site" content="@shozon_roy"> <!-- Optional: your Twitter handle -->
+  
+  <!-- Optional: Favicon -->
+  <link rel="icon" type="image/png" href="/assets/app-icon.png" />
+
+<!-- SEO-friendly description for app stores or search engines -->
+<!--
+  Play Store Style App Download Page: A pixel-perfect, fully responsive web template that mimics the Google Play Store’s app detail page UI. Instantly showcase your mobile app with screenshots, ratings, features, reviews, developer info, and a sticky install button. Includes light/dark mode, mobile-first design, and easy customization. No dependencies required — just plug in your content and launch!
+  Design & Developed by Shozon Roy.
+-->
+    <style>
+        :root {
+            /* Dark theme variables (default) */
+            --bg-primary: #0a0e27; /* 60% Dark */
+            --bg-secondary: rgba(26, 31, 58, 0.95);
+            --bg-tertiary: rgba(26, 31, 58, 0.8);
+            --bg-quaternary: rgba(26, 31, 58, 0.6);
+            --bg-card: rgba(10, 14, 39, 0.8);
+            --text-primary: #e0e6ed; /* 30% Light */
+            --text-secondary: #8892b0;
+            --border-color: rgba(224, 230, 237, 0.1);
+            --accent: #0f9d58; /* 10% Green */
+            --accent-hover: #0b8043;
+            --accent-light: rgba(15, 157, 88, 0.1);
+            --accent-border: rgba(15, 157, 88, 0.3);
+        }
+        
+        [data-theme="light"] {
+            /* Light theme variables */
+            --bg-primary: #ffffff;
+            --bg-secondary: rgba(255, 255, 255, 0.95);
+            --bg-tertiary: rgba(248, 249, 250, 0.8);
+            --bg-quaternary: rgba(241, 243, 245, 0.6);
+            --bg-card: rgba(248, 249, 250, 0.8);
+            --text-primary: #202124; /* Black */
+            --text-secondary: #5f6368;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --accent: #0f9d58; /* Green */
+            --accent-hover: #0b8043;
+            --accent-light: rgba(15, 157, 88, 0.1);
+            --accent-border: rgba(15, 157, 88, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .app-container {
+            height: 100vh;
+            width: 100vw;
+            background: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Fixed Premium Header */
+        .premium-header {
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        /* Content wrapper */
+        .content-wrapper {
+            margin-top: 80px;
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .app-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+        
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .app-icon i {
+            font-size: 28px;
+            color: var(--text-primary);
+            z-index: 1;
+        }
+        
+        .app-details {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .app-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+        
+        .app-developer {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        .app-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+        
+        .star-rating {
+            color: var(--accent);
+            font-size: 14px;
+            display: flex;
+            gap: 1px;
+        }
+        
+        .rating-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .premium-download-btn {
+            background: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .premium-download-btn:hover::before {
+            left: 100%;
+        }
+        
+        .premium-download-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        .premium-download-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Premium Info Bar */
+        .premium-info-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 16px 0;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .info-item {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 0;
+        }
+        
+        .info-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 30px;
+            background: var(--border-color);
+        }
+        
+        .info-icon {
+            font-size: 20px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        
+        .info-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Premium Screenshots */
+        .premium-screenshots {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            letter-spacing: -0.3px;
+        }
+        
+        .screenshots-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: var(--bg-card);
+            padding: 16px;
+        }
+        
+        .screenshots-wrapper {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 8px;
+        }
+        
+        .screenshots-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .screenshot {
+            width: 200px;
+            height: 356px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .screenshot-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+        
+        .screenshot:hover .screenshot-overlay {
+            opacity: 1;
+        }
+        
+        .screenshot-text {
+            color: var(--text-primary);
+            font-size: 13px;
+            font-weight: 600;
+            transform: translateY(16px);
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot:hover .screenshot-text {
+            transform: translateY(0);
+        }
+        
+        /* Play Button Overlay */
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        
+        .screenshot:hover .play-overlay {
+            background: rgba(15, 157, 88, 0.8);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .play-overlay i {
+            font-size: 24px;
+            color: var(--text-primary);
+        }
+        
+        /* Image Viewer Modal */
+        .image-viewer-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .image-viewer-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .image-viewer-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-viewer-image {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .image-viewer-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+        
+        .image-viewer-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .image-viewer-prev {
+            left: 20px;
+        }
+        
+        .image-viewer-next {
+            right: 20px;
+        }
+        
+        .image-viewer-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .image-viewer-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .image-viewer-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--text-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        /* Premium Features */
+        .premium-features {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        
+        .feature-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        
+        .feature-icon i {
+            font-size: 24px;
+            color: var(--accent);
+        }
+        
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: var(--text-primary);
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .about-content {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        
+        .about-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        /* Data Safety Section */
+        .data-safety-section {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .safety-content {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        
+        .safety-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .safety-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .safety-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .safety-icon i {
+            font-size: 20px;
+            color: var(--accent);
+        }
+        
+        .safety-details {
+            flex: 1;
+        }
+        
+        .safety-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            color: var(--text-primary);
+        }
+        
+        .safety-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        /* Rating Section */
+        .rating-section {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .rating-content {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        
+        .rating-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .rating-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .rating-stars {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .overall-stars {
+            color: var(--accent);
+            font-size: 18px;
+            display: flex;
+            gap: 2px;
+        }
+        
+        .rating-count {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .rate-btn {
+            background: var(--accent-light);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .rate-btn:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+        
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .review-item {
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .reviewer-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .reviewer-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .review-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .review-rating {
+            color: var(--accent);
+            font-size: 14px;
+            display: flex;
+            gap: 1px;
+        }
+        
+        .review-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        /* Support Section */
+        .support-section {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .support-content {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .support-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .support-item:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        
+        .support-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .support-icon i {
+            font-size: 20px;
+            color: var(--accent);
+        }
+        
+        .support-details {
+            flex: 1;
+        }
+        
+        .support-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 0 2px 0;
+            color: var(--text-primary);
+        }
+        
+        .support-value {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        /* Developer Section */
+        .developer-section {
+            padding: 24px 20px;
+            background: var(--bg-quaternary);
+        }
+        
+        .developer-content {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .developer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .developer-info {
+            flex: 1;
+        }
+        
+        .developer-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+            color: var(--text-primary);
+        }
+        
+        .developer-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .developer-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 8px 0 0 0;
+            line-height: 1.5;
+        }
+        
+        /* Footer Section */
+        .footer-section {
+            padding: 32px 20px;
+            background: var(--bg-tertiary);
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-content {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .footer-copyright {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        .footer-link:hover::after {
+            transform: scaleX(1);
+        }
+        
+        /* Premium Bottom Download */
+        .premium-bottom-download {
+            padding: 20px;
+            margin-bottom: 60px;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            position: sticky;
+            bottom: 0;
+        }
+        
+        .premium-bottom-btn {
+            width: 100%;
+            background: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            padding: 14px;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .premium-bottom-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .premium-bottom-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .premium-bottom-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        .premium-bottom-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Settings Button */
+        .fab {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .fab:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+        
+        .fab i {
+            font-size: 20px;
+        }
+        
+        /* Settings Modal */
+        .settings-modal {
+            position: fixed;
+            bottom: 140px;
+            right: 20px;
+            width: 280px;
+            background: var(--bg-secondary);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            z-index: 100;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .settings-modal.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .settings-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        
+        .settings-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .settings-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: none;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .settings-close:hover {
+            background: var(--accent-light);
+            color: var(--text-primary);
+        }
+        
+        .settings-section {
+            margin-bottom: 20px;
+        }
+        
+        .settings-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .settings-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .theme-options {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .theme-option {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .theme-option:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        
+        .theme-option.active {
+            border-color: var(--accent);
+            background: var(--accent-light);
+        }
+        
+        .theme-icon {
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+        
+        .theme-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .social-icon:hover {
+            border-color: var(--accent);
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+        
+        .copy-link-btn {
+            width: 100%;
+            background: var(--accent-light);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .copy-link-btn:hover {
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+        
+        /* Scrollbar Styling */
+        .content-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .content-wrapper::-webkit-scrollbar-track {
+            background: var(--bg-tertiary);
+        }
+        
+        .content-wrapper::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 4px;
+        }
+        
+        .content-wrapper::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .app-name {
+                font-size: 18px;
+            }
+            
+            .app-icon {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .app-icon i {
+                font-size: 24px;
+            }
+            
+            .screenshot {
+                width: 160px;
+                height: 285px;
+            }
+            
+            .features-grid,
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .premium-header {
+                height: 85px;
+                padding: 12px 16px;
+            }
+            
+            .content-wrapper {
+                margin-top: 72px;
+            }
+            
+            .rating-number {
+                font-size: 28px;
+            }
+            
+            .developer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .settings-modal {
+                width: 260px;
+                right: 16px;
+            }
+            
+            .image-viewer-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .image-viewer-close {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+            
+            .footer-links {
+                gap: 16px;
+            }
+            
+            .footer-link {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Fixed Premium Header -->
+        <div class="premium-header">
+            <div class="app-info">
+                <div class="app-icon">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+                <div class="app-details">
+                    <h1 class="app-name">Super App Pro</h1>
+                    <p class="app-developer">Developer Studio Inc.</p>
+                    <div class="app-rating">
+                        <span class="star-rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </span>
+                        <span class="rating-text">4.5 • 10M+ downloads</span>
+                    </div>
+                </div>
+                <button class="premium-download-btn" onclick="downloadApp()">
+                    <i class="bi bi-download"></i>
+                    Install
+                </button>
+            </div>
+        </div>
+        
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Premium Info Bar -->
+            <div class="premium-info-bar">
+                <div class="info-item">
+                    <i class="bi bi-star-fill info-icon"></i>
+                    <div class="info-value">4.5</div>
+                    <div class="info-label">Rating</div>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-download info-icon"></i>
+                    <div class="info-value">10M+</div>
+                    <div class="info-label">Downloads</div>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-person-fill info-icon"></i>
+                    <div class="info-value">16+</div>
+                    <div class="info-label">Rated For 16+</div>
+                </div>
+                <div class="info-item">
+                    <i class="bi bi-hdd-fill info-icon"></i>
+                    <div class="info-value">125MB</div>
+                    <div class="info-label">Size</div>
+                </div>
+            </div>
+            
+            <!-- Premium Screenshots -->
+            <div class="premium-screenshots">
+                <h2 class="section-title">Screenshots</h2>
+                <div class="screenshots-container">
+                    <div class="screenshots-wrapper">
+                        <!-- New first screenshot with play icon -->
+                        <div class="screenshot" onclick="openImageViewer(0)">
+                            <img src="https://picsum.photos/seed/video/200/356.jpg" alt="Video Preview">
+                            <div class="play-overlay">
+                                <i class="bi bi-play-fill"></i>
+                            </div>
+                            <div class="screenshot-overlay">
+                                <div class="screenshot-text">App Preview</div>
+                            </div>
+                        </div>
+                        <div class="screenshot" onclick="openImageViewer(1)">
+                            <img src="https://picsum.photos/seed/dark1/200/356.jpg" alt="Screenshot 1">
+                            <div class="screenshot-overlay">
+                                <div class="screenshot-text">Main Dashboard</div>
+                            </div>
+                        </div>
+                        <div class="screenshot" onclick="openImageViewer(2)">
+                            <img src="https://picsum.photos/seed/dark2/200/356.jpg" alt="Screenshot 2">
+                            <div class="screenshot-overlay">
+                                <div class="screenshot-text">Feature Overview</div>
+                            </div>
+                        </div>
+                        <div class="screenshot" onclick="openImageViewer(3)">
+                            <img src="https://picsum.photos/seed/dark3/200/356.jpg" alt="Screenshot 3">
+                            <div class="screenshot-overlay">
+                                <div class="screenshot-text">Settings Panel</div>
+                            </div>
+                        </div>
+                        <div class="screenshot" onclick="openImageViewer(4)">
+                            <img src="https://picsum.photos/seed/dark4/200/356.jpg" alt="Screenshot 4">
+                            <div class="screenshot-overlay">
+                                <div class="screenshot-text">User Profile</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Features -->
+            <div class="premium-features">
+                <h2 class="section-title">Premium Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h3 class="feature-title">Lightning Fast</h3>
+                        <p class="feature-description">Experience blazing fast performance with our optimized engine. Load times reduced by 60%.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="feature-title">Secure & Private</h3>
+                        <p class="feature-description">Your data is encrypted end-to-end. Privacy first approach with zero data sharing.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-palette"></i>
+                        </div>
+                        <h3 class="feature-title">Beautiful Design</h3>
+                        <p class="feature-description">Modern interface with dark mode, themes, and customizable layouts.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-globe"></i>
+                        </div>
+                        <h3 class="feature-title">Global Access</h3>
+                        <p class="feature-description">Available in 50+ languages. Works across all devices with no restrictions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- About Section -->
+            <div class="about-section">
+                <h2 class="section-title">About this app</h2>
+                <div class="about-content">
+                    <p class="about-description">
+                        Super App Pro is a revolutionary productivity application designed to streamline your daily tasks and enhance your workflow. With its intuitive interface and powerful features, it helps you stay organized, focused, and efficient. Whether you're managing projects, tracking habits, or collaborating with teams, Super App Pro provides all the tools you need in one seamless experience. Join millions of users who have transformed their productivity with our app.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Data Safety Section -->
+            <div class="data-safety-section">
+                <h2 class="section-title">Data Safety</h2>
+                <div class="safety-content">
+                    <div class="safety-item">
+                        <div class="safety-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <div class="safety-details">
+                            <h3 class="safety-title">No data shared with third parties</h3>
+                            <p class="safety-description">We don't share your personal information with any third parties without your explicit consent.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="safety-item">
+                        <div class="safety-icon">
+                            <i class="bi bi-database-x"></i>
+                        </div>
+                        <div class="safety-details">
+                            <h3 class="safety-title">No data collected</h3>
+                            <p class="safety-description">We don't collect any personal data. All your information stays on your device and is never transmitted to our servers.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="safety-item">
+                        <div class="safety-icon">
+                            <i class="bi bi-lock"></i>
+                        </div>
+                        <div class="safety-details">
+                            <h3 class="safety-title">Encrypted data</h3>
+                            <p class="safety-description">All data is encrypted using industry-standard encryption protocols to ensure maximum security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rating Section -->
+            <div class="rating-section">
+                <h2 class="section-title">Rate this app</h2>
+                <div class="rating-content">
+                    <div class="rating-header">
+                        <div class="rating-summary">
+                            <div class="rating-number">4.5</div>
+                            <div class="rating-stars">
+                                <div class="overall-stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <div class="rating-count">125,842 reviews</div>
+                            </div>
+                        </div>
+                        <button class="rate-btn" onclick="rateApp()">
+                            <i class="bi bi-star"></i> Rate
+                        </button>
+                    </div>
+                    
+                    <div class="reviews-list">
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">A</div>
+                                    <div class="reviewer-name">Alex Johnson</div>
+                                </div>
+                                <div class="review-date">2 days ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="review-text">This app has completely transformed my workflow. The interface is clean, intuitive, and packed with features I actually use. Highly recommended!</p>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">M</div>
+                                    <div class="reviewer-name">Maria Garcia</div>
+                                </div>
+                                <div class="review-date">1 week ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <p class="review-text">Great app with lots of useful features. The dark mode is easy on the eyes, and the performance is excellent. Would love to see more customization options in future updates.</p>
+                        </div>
+                        
+                        <div class="review-item">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">J</div>
+                                    <div class="reviewer-name">James Wilson</div>
+                                </div>
+                                <div class="review-date">2 weeks ago</div>
+                            </div>
+                            <div class="review-rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                            <p class="review-text">I've tried many productivity apps, but this one stands out. It's fast, reliable, and has all the features I need. The customer support is also very responsive.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Support Section -->
+            <div class="support-section">
+                <h2 class="section-title">App Support</h2>
+                <div class="support-content">
+                    <div class="support-grid">
+                        <div class="support-item" onclick="openLink('https://superapp.example.com')">
+                            <div class="support-icon">
+                                <i class="bi bi-globe"></i>
+                            </div>
+                            <div class="support-details">
+                                <h3 class="support-title">Website</h3>
+                                <p class="support-value">superapp.example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="support-item" onclick="openEmail('support@superapp.example.com')">
+                            <div class="support-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div class="support-details">
+                                <h3 class="support-title">Email</h3>
+                                <p class="support-value">support@superapp.example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="support-item" onclick="openLink('https://help.superapp.example.com')">
+                            <div class="support-icon">
+                                <i class="bi bi-question-circle"></i>
+                            </div>
+                            <div class="support-details">
+                                <h3 class="support-title">Help Center</h3>
+                                <p class="support-value">FAQs and tutorials</p>
+                            </div>
+                        </div>
+                        
+                        <div class="support-item" onclick="openLink('https://status.superapp.example.com')">
+                            <div class="support-icon">
+                                <i class="bi bi-activity"></i>
+                            </div>
+                            <div class="support-details">
+                                <h3 class="support-title">System Status</h3>
+                                <p class="support-value">All systems operational</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Developer Section -->
+            <div class="developer-section">
+                <h2 class="section-title">About the Developer</h2>
+                <div class="developer-content">
+                    <div class="developer-avatar">SR</div>
+                    <div class="developer-info">
+                        <h3 class="developer-name">Shozon Roy</h3>
+                        <p class="developer-title">Lead Developer & Founder</p>
+                        <p class="developer-description">
+                            Shozon Roy is a passionate software engineer with over 10 years of experience in creating innovative mobile applications. With a focus on user experience and performance, Shozon leads a team of dedicated developers committed to delivering high-quality apps that make a difference in people's lives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+              
+          
+            <!-- Footer Section -->
+            <div class="extra-for-bottomstickybutton">
+            <div class="footer-section">
+                <div class="footer-content">
+                    <div class="footer-copyright">
+                        © 2024 Super App Pro. All Rights Reserved.
+                    </div>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">About Us</a>
+                        <a href="#" class="footer-link">Contact Us</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Premium Bottom Download -->
+            <div class="premium-bottom-download">
+                <button class="premium-bottom-btn" onclick="downloadApp()">
+                    <i class="bi bi-download"></i>
+                    Install Super App Pro
+                </button>
+            </div>
+        </div>
+       </div>
+    </div>
+    
+    <!-- Image Viewer Modal -->
+    <div class="image-viewer-modal" id="imageViewerModal">
+        <div class="image-viewer-content">
+            <img class="image-viewer-image" id="viewerImage" src="" alt="Screenshot">
+            <button class="image-viewer-nav image-viewer-prev" onclick="navigateImage(-1)">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+            <button class="image-viewer-nav image-viewer-next" onclick="navigateImage(1)">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+            <button class="image-viewer-close" onclick="closeImageViewer()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="image-viewer-counter" id="imageCounter">1 / 5</div>
+        </div>
+    </div>
+    
+    <!-- Settings Button -->
+    <button class="fab" id="settingsBtn" onclick="toggleSettings()">
+        <i class="bi bi-gear-fill"></i>
+    </button>
+    
+    <!-- Settings Modal -->
+    <div class="settings-modal" id="settingsModal">
+        <div class="settings-header">
+            <h3 class="settings-title">Settings</h3>
+            <button class="settings-close" onclick="toggleSettings()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+        
+        <div class="settings-section">
+            <h4 class="settings-section-title">Theme</h4>
+            <div class="theme-options">
+                <div class="theme-option active" onclick="setTheme('dark')">
+                    <i class="bi bi-moon-fill theme-icon"></i>
+                    <span class="theme-name">Dark</span>
+                </div>
+                <div class="theme-option" onclick="setTheme('light')">
+                    <i class="bi bi-sun-fill theme-icon"></i>
+                    <span class="theme-name">Light</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h4 class="settings-section-title">Share</h4>
+            <div class="social-icons">
+                <div class="social-icon" onclick="shareOnSocial('facebook')">
+                    <i class="bi bi-facebook"></i>
+                </div>
+                <div class="social-icon" onclick="shareOnSocial('twitter')">
+                    <i class="bi bi-twitter"></i>
+                </div>
+                <div class="social-icon" onclick="shareOnSocial('instagram')">
+                    <i class="bi bi-instagram"></i>
+                </div>
+                <div class="social-icon" onclick="shareOnSocial('linkedin')">
+                    <i class="bi bi-linkedin"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <button class="copy-link-btn" onclick="copyLink()">
+                <i class="bi bi-link-45deg"></i>
+                Copy Link
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Image viewer functionality
+        const screenshotImages = [
+            'https://picsum.photos/seed/video/800/1424.jpg',
+            'https://picsum.photos/seed/dark1/800/1424.jpg',
+            'https://picsum.photos/seed/dark2/800/1424.jpg',
+            'https://picsum.photos/seed/dark3/800/1424.jpg',
+            'https://picsum.photos/seed/dark4/800/1424.jpg'
+        ];
+        
+        let currentImageIndex = 0;
+        
+        function openImageViewer(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('imageViewerModal');
+            const viewerImage = document.getElementById('viewerImage');
+            const imageCounter = document.getElementById('imageCounter');
+            
+            viewerImage.src = screenshotImages[index];
+            imageCounter.textContent = `${index + 1} / ${screenshotImages.length}`;
+            modal.classList.add('active');
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeImageViewer() {
+            const modal = document.getElementById('imageViewerModal');
+            modal.classList.remove('active');
+            
+            // Restore body scrolling
+            document.body.style.overflow = '';
+        }
+        
+        function navigateImage(direction) {
+            currentImageIndex += direction;
+            
+            // Wrap around if reaching the end or beginning
+            if (currentImageIndex < 0) {
+                currentImageIndex = screenshotImages.length - 1;
+            } else if (currentImageIndex >= screenshotImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            const viewerImage = document.getElementById('viewerImage');
+            const imageCounter = document.getElementById('imageCounter');
+            
+            viewerImage.src = screenshotImages[currentImageIndex];
+            imageCounter.textContent = `${currentImageIndex + 1} / ${screenshotImages.length}`;
+        }
+        
+        // Close modal when clicking outside the image
+        document.getElementById('imageViewerModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeImageViewer();
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const modal = document.getElementById('imageViewerModal');
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeImageViewer();
+                } else if (e.key === 'ArrowLeft') {
+                    navigateImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateImage(1);
+                }
+            }
+        });
+        
+        // Download APK function
+        function downloadApp() {
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = 'resources/userapk.apk';
+            link.download = 'SuperAppPro.apk';
+            
+            // Append to body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Update button text temporarily
+            const buttons = document.querySelectorAll('.premium-download-btn, .premium-bottom-btn');
+            buttons.forEach(btn => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="bi bi-arrow-repeat"></i> Installing...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            });
+        }
+        
+        function rateApp() {
+            // Removed toast notification
+        }
+        
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+        
+        function openEmail(email) {
+            window.location.href = `mailto:${email}`;
+        }
+        
+        // Settings Modal Functions
+        function toggleSettings() {
+            const settingsModal = document.getElementById('settingsModal');
+            settingsModal.classList.toggle('active');
+        }
+        
+        function setTheme(theme) {
+            const themeOptions = document.querySelectorAll('.theme-option');
+            themeOptions.forEach(option => {
+                option.classList.remove('active');
+            });
+            
+            event.currentTarget.classList.add('active');
+            
+            // Apply the theme to the document
+            document.documentElement.setAttribute('data-theme', theme);
+            
+            // Save theme preference to localStorage
+            localStorage.setItem('theme', theme);
+        }
+        
+        function shareOnSocial(platform) {
+            const currentUrl = window.location.href;
+            const text = "Check out Super App Pro - The ultimate productivity app!";
+            let shareUrl = "";
+            
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(currentUrl)}`;
+                    break;
+                case 'instagram':
+                    // Instagram doesn't support direct URL sharing, so we'll copy the link
+                    copyLink();
+                    return;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentUrl)}`;
+                    break;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank');
+            }
+        }
+        
+        function copyLink() {
+            const currentUrl = window.location.href;
+            
+            // Create a temporary input element to copy the URL
+            const tempInput = document.createElement('input');
+            tempInput.value = currentUrl;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
+        
+        // Load saved theme preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Update active theme option in settings
+            const themeOptions = document.querySelectorAll('.theme-option');
+            themeOptions.forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('onclick').includes(savedTheme)) {
+                    option.classList.add('active');
+                }
+            });
+        });
+        
+        // Close settings modal when clicking outside
+        document.addEventListener('click', function(event) {
+            const settingsModal = document.getElementById('settingsModal');
+            const settingsBtn = document.getElementById('settingsBtn');
+            
+            if (settingsModal.classList.contains('active') && 
+                !settingsModal.contains(event.target) && 
+                !settingsBtn.contains(event.target)) {
+                settingsModal.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for screenshots
+        const screenshotsContainer = document.querySelector('.screenshots-wrapper');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        screenshotsContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - screenshotsContainer.offsetLeft;
+            scrollLeft = screenshotsContainer.scrollLeft;
+        });
+        
+        screenshotsContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        screenshotsContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        screenshotsContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - screenshotsContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            screenshotsContainer.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Touch support
+        screenshotsContainer.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - screenshotsContainer.offsetLeft;
+            scrollLeft = screenshotsContainer.scrollLeft;
+        });
+        
+        screenshotsContainer.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - screenshotsContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            screenshotsContainer.scrollLeft = scrollLeft - walk;
+        });
+        
+        screenshotsContainer.addEventListener('touchend', () => {
+            isDown = false;
+        });
+    </script>
+</body>
+</html>
